@@ -10,7 +10,7 @@
 
 <script type="text/javascript">
   var interval;
-  var socket = eio('ws://'+window.location.hostname+'/');
+  var socket = eio('ws://webcam-spybox:9000/');
   var img = $('#myImg');
   socket.on('open', function(){
     socket.on('message', function(data){
