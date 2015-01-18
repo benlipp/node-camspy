@@ -1,49 +1,37 @@
 <html>
-  <head>
-    <style>
-      body {
-        font-family: "Helvetica Neue", helvetica, arial;
-        padding: 15px;
-      }
+<head>
+  <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+  <script src="engine.io.js"></script>
+</head>
+<body>
+<button id="start">Start Streaming</button>
+<button id="stop">Stop Streaming</button>
+<img id="myImg">
 
-      ul {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-      }
+<script type="text/javascript">
+  var interval;
+  var socket = eio('ws://'+window.location.hostname+'/');
+  var img = $('#myImg');
+  socket.on('open', function(){
+    socket.on('message', function(data){
+      img.src = (window.URL || window.webkitURL).createObjectURL(new Blob(data));
+    });
+    socket.on('close', function(){
+      console.log('socket closed');
+    });
+  });
 
-      ul li {
-        line-height: 1.4;
-      }
-    </style>
+  function start(){
+    interval = setInterval(function(){
+      socket.send('Image please!');
+    },3000);
+  };
 
-    <script>
-    function init() {
-      var host = 'ws://' + location.host;
-      var ws = new WebSocket(host);
-      ws.onmessage = function (event) {
-        msg = JSON.parse(event.data);
-        console.log(msg);
-        var li = document.createElement('li');
-        li.innerHTML = msg.message;
-        document.querySelector('#messages').appendChild(li);
-      };
-      var message = document.querySelector('#message');
-      var send = document.querySelector('#send');
-      send.addEventListener('click', function() {
-        var obj = {};
-        obj.evt = 'send';
-        obj.message = message.value;
-        ws.send(JSON.stringify(obj));
-      }, false);
-    }
-    window.onload = init;
-    </script>
-  </head>
-  <body>
-    <input id="message" type="text" value="">
-    <button id="send">Send</button>
-    <h1>Messages</h1>
-    <ul id='messages'></ul>
-  </body>
+  function stop(){
+    clearInterval(interval);
+  };
+
+</script>
+
+</body>
 </html>

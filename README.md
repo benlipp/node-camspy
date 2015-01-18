@@ -1,19 +1,5 @@
-# Node.js Websocket Server
+# node-camspy
+Show images from a webcam with Node.js
 
-using the [einaros/ws](http://einaros.github.io/ws/) WebSockets implementation.
+This is for my own personal use, so don't expect very much documentation. However, I will help whoever wants to hack through it :D
 
-# Running Locally
-
-``` bash
-npm install
-foreman start
-```
-
-# Running on Heroku
-
-``` bash
-heroku create
-heroku labs:enable websockets
-git push heroku master
-heroku open
-```
