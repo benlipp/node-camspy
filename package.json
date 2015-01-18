@@ -5,7 +5,7 @@
   "main": "camspy.js",
   "dependencies": {
     "camelot": "^0.0.4",
-    "engine.io": "^1.4.x",
+    "engine.io": "^1.4.x"
   },
   "devDependencies": {},
   "scripts": {
