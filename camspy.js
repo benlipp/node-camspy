@@ -36,7 +36,7 @@ engine.on('connection',function(socket){
     console.log('message recieved')
     console.log(data)
     camelot.grab({},function(image){
-      console.log('image')
+      console.log(image)
       socket.send(image)
     })
   });
