@@ -21,6 +21,9 @@ binServer.on('connection',function(client){
 	camelot.grab({'frequency' : 3},function(image){
 		client.send(image)
 	})
+	binServer.on('end',function(){
+		client.close()
+	})
 })
 
 http.createServer(function(request, response) {

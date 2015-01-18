@@ -14,13 +14,13 @@
       });
       stream.on('end', function(){
         // Display new data in browser!
-        var img = document.createElement("img");
+        var img = document.getElementById('myImg');
         img.src = (window.URL || window.webkitURL).createObjectURL(new Blob(parts));
-        document.body.appendChild(img);
       });
     });
   </script>
 </head>
 <body>
+<img id="myImg" src="">
 </body>
 </html>
