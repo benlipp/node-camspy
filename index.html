@@ -15,8 +15,9 @@
   var img = $('#myImg');
   socket.on('open', function(){
     socket.on('message', function(data){
-      console.log(data)
-      img.src = 'data:image/png;base64,' + hexToBase64(data);
+      var buffer = []
+      buffer.push(data)
+      img.src = (window.URL || window.webkitURL).createObjectURL(new Blob(buffer));
     });
     socket.on('close', function(){
       console.log('socket closed');
