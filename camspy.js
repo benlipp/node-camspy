@@ -5,7 +5,6 @@
 var Camelot = require('camelot')
 var engine = require('engine.io').listen('9000')
 var fs = require('fs')
-var alert = require('alert')
 
 var http = require("http")
 var url = require("url")
@@ -49,7 +48,7 @@ http.createServer(function(request, response) {
 	var filename = path.join(process.cwd(), uri)
   console.log(uri);
   if (uri == 'alert'){
-    alert()
+    process.stdout.write('\x07');
   }
 
   fs.exists(filename, function(exists) {

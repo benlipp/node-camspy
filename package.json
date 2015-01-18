@@ -4,7 +4,6 @@
   "description": "Show images from a webcam with Node.js",
   "main": "camspy.js",
   "dependencies": {
-    "alert": "0.0.2",
     "camelot": "^0.0.4",
     "engine.io": "^1.4.x"
   },
