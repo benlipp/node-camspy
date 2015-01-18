@@ -16,6 +16,8 @@
 <img id="myImg" src="">
 
 <script type="text/javascript">
+$().ready(function(){
+
   var interval;
   var socket = eio('ws://webcam-spybox:9000/');
   var img = $('#myImg');
@@ -73,7 +75,8 @@
                   keyStr.charAt(enc3) + keyStr.charAt(enc4);
     }
     return output;
-}
+  }
+})
 </script>
 
 </body>
