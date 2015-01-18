@@ -1,5 +1,6 @@
 <html>
 <head>
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
   <script src="engine.io.js"></script>
 </head>
@@ -10,9 +11,15 @@
 </style>
 
 <body>
-<button id="single" onclick="single()">Single Image</button>
-<button id="start" onclick="start()">Start Streaming</button>
-<button id="stop" onclick="stop()">Stop Streaming</button>
+<div class="container">
+<div class="col-md-12">
+<div class="row">
+<button id="alert" onclick="alert()" class="btn btn-error">Send an Alert</button>
+<button id="single" onclick="single()" class="btn btn-warning">Single Image</button>
+<button id="start" onclick="start()" class="btn btn-success">Start Streaming</button>
+<button id="stop" onclick="stop()" class="btn btn-error">Stop Streaming</button>
+</div>
+
 <br>
 <img id="myImg" src="">
 
@@ -48,6 +55,12 @@
   function stop(){
     clearInterval(interval);
   };
+
+  function alert(){
+    $.get('/alert',function(response){
+      console.log(response);
+    });
+  }
 
   function encode (input) {
     var keyStr = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=";
