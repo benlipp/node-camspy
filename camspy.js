@@ -33,7 +33,10 @@ var camelot = new Camelot(camOptions);
 
 engine.on('connection',function(socket){
   socket.on('message', function(data){
+    console.log('message recieved')
+    console.log(data)
     camelot.grab({},function(image){
+      console.log('image')
       socket.send(image)
     })
   });

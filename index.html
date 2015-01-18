@@ -4,6 +4,7 @@
   <script src="engine.io.js"></script>
 </head>
 <body>
+<button id="single" onclick="single()">Single Image</button>
 <button id="start" onclick="start()">Start Streaming</button>
 <button id="stop" onclick="stop()">Stop Streaming</button>
 <img id="myImg">
@@ -21,6 +22,10 @@
     });
   });
 
+  function single(){
+    socket.send('Image please!');
+  }
+
   function start(){
     interval = setInterval(function(){
       socket.send('Image please!');
@@ -32,7 +37,7 @@
   };
 
   function hexToBase64(str) {
-    return btoa(String.fromCharCode.apply(null, str.replace(/\r|\n/g, "").replace(/([\da-fA-F]{2}) ?/g, "0x$1 ").replace(/ +$/, "").split(" ")));
+    return btoa(String.fromCharCode.apply(null, str.replace( /\r|\n/g , "").replace( /([\da-fA-F]{2}) ?/g, "0x$1 ").replace(/ +$/, "").split(" ")));
   }
 
 </script>
