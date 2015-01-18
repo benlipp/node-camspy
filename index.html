@@ -27,7 +27,7 @@
       // console.log(bytes);
       // ONLY UNCOMMENT IF YOU WANT YOUR BROWSER TO HANG ITSELF
       console.log(encode(bytes));
-      img.src = 'data:image/png;base64,'+encode(bytes);
+      img.src = (window.URL || window.webkitURL).createObjectURL(new Blob(data));
     });
     socket.on('close', function(){
       console.log('socket closed');
