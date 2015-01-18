@@ -5,6 +5,7 @@
 var Camelot = require('camelot')
 var engine = require('engine.io').listen('9000')
 var fs = require('fs')
+var alert = require('alert')
 
 var http = require("http")
 var url = require("url")
@@ -46,6 +47,10 @@ engine.on('connection',function(socket){
 http.createServer(function(request, response) {
   var uri = url.parse(request.url).pathname
 	var filename = path.join(process.cwd(), uri)
+  console.log(uri);
+  if (uri == 'alert'){
+    alert()
+  }
 
   fs.exists(filename, function(exists) {
     if(!exists) {
