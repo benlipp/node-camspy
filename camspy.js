@@ -20,9 +20,9 @@ var camOptions = {
   greyscale : false,
   controls : {
     focus : 'auto',
-    brightness : 100,
-    contrast : 100,
-    saturation : 100,
+    brightness : 130,
+    contrast : 130,
+    saturation : 50,
     hue : 100,
     gamma : 100,
     sharpness : 50
