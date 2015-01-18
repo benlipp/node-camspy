@@ -27,6 +27,7 @@ var camOptions = {
     gamma : 100,
     sharpness : 50
   }
+}
 
 var camelot = new Camelot(camOptions);
 
