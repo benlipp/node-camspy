@@ -1,5 +1,7 @@
 // 2015 (C) Ben Lippincott
 
+// I'm feeling anti-semicolon today
+
 var Camelot = require('camelot')
 var BinaryServer = require('binaryjs').BinaryServer
 var fs = require('fs')
