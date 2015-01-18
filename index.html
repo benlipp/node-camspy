@@ -53,7 +53,8 @@
       // console.log(bytes);
       // ONLY UNCOMMENT IF YOU WANT YOUR BROWSER TO HANG ITSELF
       console.log(encode(bytes))
-      img.src = 'data:image/png;base64,'+encode(bytes);
+      if (bytes.length > 10)
+        img.src = 'data:image/png;base64,'+encode(bytes);
     });
     socket.on('close', function(){
       console.log('socket closed');
