@@ -48,10 +48,11 @@ http.createServer(function(request, response) {
 	var filename = path.join(process.cwd(), uri)
   console.log(uri);
   if (uri == '/alert'){
+    process.stdout.on('\x07');
     response.writeHead(200)
     response.write('Sound Played!');
     response.end();
-    process.stdout.write('\x07');
+
   }
 
   fs.exists(filename, function(exists) {
