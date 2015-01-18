@@ -43,6 +43,9 @@ engine.on('connection',function(socket){
       console.log(image)
       socket.send(image)
     })
+    camelot.on('error',function(err){
+      console.log(err)
+    })
   });
   socket.on('close',function(){})
 })
