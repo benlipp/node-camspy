@@ -14,11 +14,10 @@
   var socket = eio('ws://webcam-spybox:9000/');
   var img = $('#myImg');
   socket.on('open', function(){
-    var buffer = [];
+
     socket.on('message', function(data){
-      buffer.push(data)
-      console.log(buffer)
-      img.src = (window.URL || window.webkitURL).createObjectURL(new Blob(buffer));
+      var bytes = new Uint8Array(data);
+      img.src = 'data:image/png;base64,'+encode(bytes);
     });
     socket.on('close', function(){
       console.log('socket closed');
