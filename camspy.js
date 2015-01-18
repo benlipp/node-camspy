@@ -19,7 +19,7 @@ var httpPort = process.argv[2] || 8888
 var camOptions = {
   verbose: false,
   device : '/dev/video0',
-  resolution : '640x480',
+  resolution : '590x440',
   png : '1',
   greyscale : false,
   controls : {
