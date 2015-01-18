@@ -16,12 +16,9 @@
 <img id="myImg" src="">
 
 <script type="text/javascript">
-$().ready(function(){
-
-
   var interval;
   var socket = eio('ws://webcam-spybox:9000/');
-  var img = $('#myImg');
+  var img = document.ElementById(myImg);
   socket.on('open', function(){
 
     socket.on('message', function(data){
@@ -77,7 +74,6 @@ $().ready(function(){
     }
     return output;
   }
-})
 </script>
 
 </body>
