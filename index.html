@@ -1,5 +1,6 @@
 <html>
 <head>
+  <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
   <script src="http://cdn.binaryjs.com/0/binary.js"></script>
   <script>
     // Connect to Binary.js server
@@ -14,13 +15,17 @@
       });
       stream.on('end', function(){
         // Display new data in browser!
-        var img = document.getElementById('myImg');
+        var img = $("#myImg");
         img.src = (window.URL || window.webkitURL).createObjectURL(new Blob(parts));
+      });
+      $("#exit").on('click',function(){
+        client.close();
       });
     });
   </script>
 </head>
 <body>
-<img id="myImg" src="">
+<button id="exit">EXIT STREAM</button>
+<img id="myImg">
 </body>
 </html>
