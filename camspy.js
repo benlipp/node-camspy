@@ -21,10 +21,10 @@ var camOptions = {
   controls : {
     focus : 'auto',
     brightness : 130,
-    contrast : 130,
+    contrast : 50,
     saturation : 50,
     hue : 100,
-    gamma : 100,
+    gamma : 130,
     sharpness : 50
   }
 }
