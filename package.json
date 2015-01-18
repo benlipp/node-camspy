@@ -1,24 +1,20 @@
 {
-  "name": "node-camspy",
-  "version": "1.0.0",
-  "description": "Show images from a webcam with Node.js",
-  "main": "camspy.js",
-  "dependencies": {
-    "binaryjs": "^0.2.1",
-    "camelot": "^0.0.4"
-  },
-  "devDependencies": {},
-  "scripts": {
-    "start": "node camspy.js"
-  },
+  "name": "node-ws-canary",
+  "version": "0.0.1",
   "repository": {
     "type": "git",
-    "url": "https://github.com/obiwanakin/node-camspy.git"
+    "url": "git://github.com/einaros/ws.git"
   },
-  "author": "Ben Lippincott",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/obiwanakin/node-camspy/issues"
+  "dependencies": {
+    "ws": "0.4.x",
+    "express": "3.x"
   },
-  "homepage": "https://github.com/obiwanakin/node-camspy"
+  "engines": {
+    "node": "0.10.x",
+    "npm": "2.2.x"
+  },
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  }
 }
