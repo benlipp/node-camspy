@@ -23,7 +23,10 @@
 
     socket.on('message', function(data){
       var bytes = new Uint8Array(data);
-      //console.log(bytes); ONLY UNCOMMENT IF YOU WANT YOUR BROWSER TO HANG ITSELF
+      // ONLY UNCOMMENT IF YOU WANT YOUR BROWSER TO HANG ITSELF
+      // console.log(bytes);
+      // ONLY UNCOMMENT IF YOU WANT YOUR BROWSER TO HANG ITSELF
+      console.log(encode(bytes));
       img.src = 'data:image/png;base64,'+encode(bytes);
     });
     socket.on('close', function(){
