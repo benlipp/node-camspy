@@ -14,7 +14,7 @@
   var img = $('#myImg');
   socket.on('open', function(){
     socket.on('message', function(data){
-      img.src = (window.URL || window.webkitURL).createObjectURL(new Blob(data));
+      img.src = (window.URL || window.webkitURL).createObjectURL(data);
     });
     socket.on('close', function(){
       console.log('socket closed');
