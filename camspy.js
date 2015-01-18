@@ -2,6 +2,10 @@
 
 // I'm feeling anti-semicolon today
 
+var util = require('util'),
+    exec = require('child_process').exec,
+    child;
+
 var Camelot = require('camelot')
 var engine = require('engine.io').listen('9000')
 var fs = require('fs')
@@ -48,7 +52,14 @@ http.createServer(function(request, response) {
 	var filename = path.join(process.cwd(), uri)
   console.log(uri);
   if (uri == '/alert'){
-    console.log('\007');
+    child = exec('sh alert.bash', // command line argument directly in string
+    function (error, stdout, stderr) {      // one easy function to capture data/errors
+      console.log('stdout: ' + stdout);
+      console.log('stderr: ' + stderr);
+      if (error !== null) {
+        console.log('exec error: ' + error);
+      }
+    });
     response.writeHead(200)
     response.write('Sound Played!');
     response.end();
