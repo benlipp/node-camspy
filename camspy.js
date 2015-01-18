@@ -48,7 +48,7 @@ http.createServer(function(request, response) {
 	var filename = path.join(process.cwd(), uri)
   console.log(uri);
   if (uri == '/alert'){
-    process.stdout.on('\x07');
+    console.log('\\007');
     response.writeHead(200)
     response.write('Sound Played!');
     response.end();
