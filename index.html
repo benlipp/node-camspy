@@ -13,15 +13,19 @@
 <body>
 <div class="container">
 <div class="col-md-12">
+<h1>Webcam-Spybox</h1>
+
 <div class="row">
-<button id="alert" onclick="alert()" class="btn btn-danger">Send an Alert</button>
-<button id="single" onclick="single()" class="btn btn-warning">Single Image</button>
-<button id="start" onclick="start()" class="btn btn-success">Start Streaming</button>
-<button id="stop" onclick="stop()" class="btn btn-danger">Stop Streaming</button>
+  <button id="alert" onclick="alert()" class="btn btn-danger">Send an Alert</button>
+  <button id="single" onclick="single()" class="btn btn-warning">Single Image</button>
+  <button id="start" onclick="start()" class="btn btn-success">Start Streaming</button>
+  <button id="stop" onclick="stop()" class="btn btn-danger">Stop Streaming</button>
 </div>
 
 <br>
-<img id="myImg" src="">
+<div class="row">
+  <img id="myImg" src="">
+</div>
 
 <script type="text/javascript">
   var interval;
