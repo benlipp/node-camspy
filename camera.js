@@ -1,7 +1,6 @@
 var Camelot = require('camelot');
 var fs = require('fs');
-
-var filename = 0000;
+var path = require('path');
 
 var camOptions = {
   verbose: false,
@@ -19,10 +18,45 @@ var camOptions = {
     sharpness : 50
   }
 };
-
-
-
 var camelot = new Camelot(camOptions);
-camelot.grab({},function(image){
+var imageDir = path.resolve('images/');
+var latestFile = '0';
 
-});
+exports.getLastFile = function(error,filename){
+	fs.readDir(imageDir,function(err,files){
+		if(err)
+			error(err);
+		filename(path.basename(files[files.length-1]));
+	});
+}
+
+function getLastFile(error,filename){
+	fs.readDir(imageDir,function(err,files){
+		if(err)
+			error(err);
+		filename(path.basename(files[files.length-1]));
+	});
+}
+
+function getImage(errCb,imageCb){
+	camelot.grab({},function(image){
+		imageCb(image);
+	});
+	camelot.on('error',function(error){
+		errCb(error);
+	});
+};
+
+exports.saveImage = function(error,success){
+	getImage(function(imgErr,image){
+		if (imgErr)
+			error(imgErr);
+		getLastFile(err,function(latest){
+			if (err)
+				error(err);
+			latest++;
+			filename = latest + '.png';
+			fd.write(filename,image);
+		});
+	});
+};
