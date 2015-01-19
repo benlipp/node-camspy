@@ -55,6 +55,7 @@
       console.log(encode(bytes))
       if (bytes.length > 10)
         img.src = 'data:image/png;base64,'+encode(bytes);
+
     });
     socket.on('close', function(){
       console.log('socket closed');
