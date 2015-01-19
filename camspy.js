@@ -11,15 +11,15 @@ var alert = require('./alert').alert();
 var camera = require('./camera');
 
 engine.on('connection',function(socket){
-  socket.on('message', function(data){
+	socket.on('message', function(data){
 
-  });
-  socket.on('close',function(){})
+	});
+	socket.on('close',function(){})
 })
 
-http.createServer(function(request, response) {
-  var uri = url.parse(request.url).pathname
-	var filename = path.join(process.cwd(), uri)
+http.createServer(function(request, response){
+	var uri = url.parse(request.url).pathname;
+	var filename = path.join(process.cwd(), uri);
   console.log(uri);
   if (uri == '/alert'){
 
@@ -51,6 +51,6 @@ http.createServer(function(request, response) {
       response.writeHead(200)
       response.write(file, "binary")
       response.end()
-    })
-  })
+    	})
+  	})
 }).listen(parseInt(httpPort, 10))

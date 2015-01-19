@@ -22,11 +22,16 @@ var camelot = new Camelot(camOptions);
 var imageDir = path.resolve('images/');
 var latestFile = '0';
 
-exports.getLastFile = function(error,filename){
+exports.getFile = function(error,fileBuffer){
 	fs.readDir(imageDir,function(err,files){
 		if(err)
 			error(err);
 		filename(path.basename(files[files.length-1]));
+		fs.readFile(filename,function(err,data){
+			if (err)
+				error(err);
+			fileBuffer(data);
+		})
 	});
 }
 
@@ -56,7 +61,11 @@ exports.saveImage = function(error,success){
 				error(err);
 			latest++;
 			filename = latest + '.png';
-			fd.write(filename,image);
+			fd.writeFile(filename,image,function(err){
+				if(err)
+					error(err);
+				success(filename);
+			});
 		});
 	});
 };
