@@ -6,7 +6,7 @@ var path = require("path");
 var httpPort = process.argv[2] || 8888;
 
 var camera = require('./camera');
-var alert = require('./alert').dingDong();
+var alert = require('./alert');
 
 var exec = require('child_process').exec;
 var child = exec('node ./takePics.js');
