@@ -57,9 +57,10 @@ exports.saveImage = function(error,success){
 		if (imgErr)
 			error(imgErr);
 	},function(image){
-		getLastFile(err,function(latest){
-			if (err)
+		getLastFile(function(err){
+			if(err)
 				error(err);
+		},function(latest){
 			latest++;
 			filename = latest + '.png';
 			fd.writeFile(filename,image,function(err){
