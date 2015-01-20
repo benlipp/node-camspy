@@ -46,7 +46,7 @@ function getLastFile(error,filename){
 			console.log(files);
 			var last = files[files.length-1];
 			console.log(last);
-			filename(path.basename(last));
+			filename(path.basename(last,null));
 		}
 	});
 }
@@ -69,7 +69,6 @@ exports.saveImage = function(error,success){
 			if(err)
 				error(err);
 		},function(latest){
-			console.log('latestFile:');
 			console.log(latest);
 			latest++;
 			filename = latest + '.png';
