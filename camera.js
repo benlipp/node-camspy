@@ -39,6 +39,8 @@ function getLastFile(error,filename){
 	fs.readdir(imageDir,function(err,files){
 		if(err)
 			error(err);
+		if(!files)
+			filename('0');
 		filename(path.basename(files[files.length-1]));
 	});
 }
