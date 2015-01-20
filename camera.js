@@ -46,7 +46,8 @@ function getLastFile(error,filename){
 			console.log(files);
 			var last = files[files.length-1];
 			console.log(last);
-			filename(path.basename(last,null));
+			console.log(path.basename(last));
+			filename(path.basename(last));
 		}
 	});
 }
