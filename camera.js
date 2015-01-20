@@ -26,9 +26,7 @@ exports.getFile = function(error,fileBuffer){
 	fs.readDir(imageDir,function(err,files){
 		if(err)
 			error(err);
-		console.log(files);
-		var last = files[files.length-1];
-		console.log(last);
+
 		filename(path.basename(last));
 		fs.readFile(filename,function(err,data){
 			if (err)
@@ -45,7 +43,10 @@ function getLastFile(error,filename){
 		if(!files){
 			filename('0');
 		} else {
-			filename(path.basename(files[files.length-1]));
+			console.log(files);
+			var last = files[files.length-1];
+			console.log(last);
+			filename(path.basename(last));
 		}
 	});
 }
