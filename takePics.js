@@ -15,4 +15,4 @@ function loop(){
 	})
 };
 
-setInterval(loop(),5000);
+setInterval(loop,5000);
