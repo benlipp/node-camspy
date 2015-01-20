@@ -72,7 +72,7 @@ exports.saveImage = function(error,success){
 		},function(latest){
 			latest = latest.slice(0,-4);
 			latest++;
-			filename = latest + '.png';
+			filename = 'images/' + latest + '.png';
 			fs.writeFile(filename,image,function(err){
 				if(err)
 					error(err);
