@@ -53,9 +53,10 @@ function getImage(errCb,imageCb){
 };
 
 exports.saveImage = function(error,success){
-	getImage(function(imgErr,image){
+	getImage(function(imgErr){
 		if (imgErr)
 			error(imgErr);
+	},function(image){
 		getLastFile(err,function(latest){
 			if (err)
 				error(err);
