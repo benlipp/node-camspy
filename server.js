@@ -39,7 +39,7 @@ var httpServer = http.createServer(function(request, response){
 	var uri = url.parse(request.url).pathname;
 	var filename = path.join(process.cwd(), uri);
 	if (uri == '/alert'){
-		alert();
+		alert.dingDong();
 		response.writeHead(200);
     	response.write('Sound Played!');
     	response.end();
