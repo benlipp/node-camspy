@@ -36,7 +36,7 @@ exports.getFile = function(error,fileBuffer){
 }
 
 function getLastFile(error,filename){
-	fs.readDir(imageDir,function(err,files){
+	fs.readdir(imageDir,function(err,files){
 		if(err)
 			error(err);
 		filename(path.basename(files[files.length-1]));
