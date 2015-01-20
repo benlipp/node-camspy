@@ -69,6 +69,8 @@ exports.saveImage = function(error,success){
 			if(err)
 				error(err);
 		},function(latest){
+			console.log('latestFile:');
+			console.log(latest);
 			latest++;
 			filename = latest + '.png';
 			fs.writeFile(filename,image,function(err){
