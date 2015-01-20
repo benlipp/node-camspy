@@ -5,8 +5,20 @@ var url = require("url");
 var path = require("path");
 var httpPort = process.argv[2] || 8888;
 
-var alert = require('./alert').alert();
 var camera = require('./camera');
+var alert = require('./alert').dingDong();
+
+var exec = require('child_process').exec;
+var child = exec('node ./takePics.js');
+child.stdout.on('data', function(data) {
+    console.log('stdout: ' + data);
+});
+child.stderr.on('data', function(data) {
+    console.log('stdout: ' + data);
+});
+child.on('close', function(code) {
+    console.log('closing code: ' + code);
+});
 
 engine.on('connection',function(socket){
 	socket.on('message', function(data){
@@ -55,17 +67,5 @@ var httpServer = http.createServer(function(request, response){
 		});
 	});
 });
-
-
-function loop(){
-	camera.saveImage(function(error){
-		console.log(error);
-	},
-	function(filename){
-		console.log('Image saved: '+filename);
-	})
-};
-
-setInterval(loop,5000);
 
 httpServer.listen(httpPort);
