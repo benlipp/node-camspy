@@ -56,10 +56,16 @@ var httpServer = http.createServer(function(request, response){
 	});
 });
 
-setInterval(camera.saveImage(function(error){
-	console.log(error);
-},function(filename){
-	console.log('Image saved: '+filename);
-}),5000);
+
+function loop(){
+	camera.saveImage(function(error){
+		console.log(error);
+	},
+	function(filename){
+		console.log('Image saved: '+filename);
+	})
+};
+
+setInterval(loop(),5000);
 
 httpServer.listen(httpPort);
